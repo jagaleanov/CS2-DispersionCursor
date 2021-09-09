@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Cursor de dispersión por división</title>
+
+    <!--CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!--JS-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+    <div class="fluid-container">
+        <nav class="avbar navbar-dark bg-dark navbar-expand-lg">
+            <h1 class="navbar-brand mx-4">Cursor de dispersión por división</h1>
+        </nav>
+        <div class="card mx-4">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h5 class="card-title">Iniciar cursor</h5>
+                        <div class="form-group">
+                            <label for="divisorTxt">Divisor</label>
+                            <input type="number" name="divisorTxt" id="divisorTxt" class="form-control" value=""
+                                autocomplete="off" min="2" step="1" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="button" id="initBtn" class="btn btn-success btn-block" value="Iniciar"
+                                onclick="initCursor()">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h5 class="card-title">Ingresar llave</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="keyAddTxt">Llave</label>
+                                    <input type="text" name="keyAddTxt" id="keyAddTxt" class="form-control" min="0"
+                                        step="1" value="" autocomplete="off" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="nameTxt">Nombre</label>
+                                    <input type="text" name="nameTxt" id="nameTxt" class="form-control" value=""
+                                        autocomplete="off" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="button" id="insertBtn" class="btn btn-primary btn-block" value="Ingresar"
+                                onclick="insertData()">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h5 class="card-title">Ingresar multiples llaves</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="keysAddTxt">Llaves</label>
+                                    <input type="text" name="keysAddTxt" id="keysAddTxt" class="form-control" min="0"
+                                        step="1" value="" autocomplete="off" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="namesTxt">Nombres</label>
+                                    <input type="text" name="namesTxt" id="namesTxt" class="form-control" value=""
+                                        autocomplete="off" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="button" id="insertsBtn" class="btn btn-primary btn-block" value="Ingresar"
+                                onclick="insertGroupData()">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h5 class="card-title">Eliminar llave</h5>
+                        <div class="form-group">
+                            <label for="keyDelTxt">Llave</label>
+                            <input type="number" name="keyDelTxt" id="keyDelTxt" class="form-control" min="0" step="1"
+                                value="" autocomplete="off" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="button" id="deleteBtn" class="btn btn-danger btn-block" value="Eliminar"
+                                onclick="deleteData()">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h5 class="card-title">Buscar llave</h5>
+                        <div class="form-group">
+                            <label for="keyFindTxt">Llave</label>
+                            <input type="number" name="keyFindTxt" id="keyFindTxt" class="form-control" min="0" step="1"
+                                value="" autocomplete="off" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="button" id="findBtn" class="btn btn-warning btn-block" value="Buscar"
+                                onclick="findData()">
+                        </div>
+                        <p id="findRes">
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mx-4 mt-4">
+            <div class="card-body">
+                <h5 class="card-title">Cabezas de lista</h5>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="table-responsive">
+                            <table id="headsTable" class="table table-bordered table-sm">
+
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <p>Próximo disponible: <span id="nextAvailable"></span></p>
+                    </div>
+                </div>
+                <h5 class="card-title">Lista de dispersión</h5>
+                <div class="table-responsive">
+                    <table id="cursorTable" class="table table-bordered table-sm">
+
+                    </table>
+                </div>
+            </div>
+            <hr>
+        </div>
+        <script src="js/tree.js"></script>
+</body>
+
+</html>
